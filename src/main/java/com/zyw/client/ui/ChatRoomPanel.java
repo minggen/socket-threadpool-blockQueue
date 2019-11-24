@@ -76,7 +76,7 @@ public class ChatRoomPanel extends JPanel {
 
     private void insertText(Message m) {
         if (m.getFrom() != userId && MsgType.TEXT.equals(m.getMsgType())) {
-            insertText(m.getSendTime() + " " + m.getNickName() + " :\n" + m.getConn() + "\n", false);
+            insertText(TimeUtil.getTime(m.getSendTime()) + " " + m.getNickName() + "说:\n    " + m.getConn() + "\n", false);
         }
     }
 
@@ -98,9 +98,9 @@ public class ChatRoomPanel extends JPanel {
             picture.setBounds(3, 10, 55, 55);
             picture.setBorder(Consts.LIGHT_GRAY_BORDER);
 
-            ImageIcon picture1 = PictureUtil.getPicture("tx/00"+ new Random().nextInt(10) +".jpg");
+            ImageIcon picture1 = PictureUtil.getPicture("tx/00" + new Random().nextInt(10) + ".jpg");
             if (pic != null) {
-                picture1  = PictureUtil.getPicture(pic);
+                picture1 = PictureUtil.getPicture(pic);
             }
             picture.setIcon(new ImageIcon(picture1.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
 

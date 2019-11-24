@@ -30,6 +30,7 @@ public class Client {
             log.error("初始化失败");
         }
         initBlockQueue();
+        // 初始化 两个 队列
         initReaderAndWriter();
         new ChatRoom(userId, nickName, pic);
     }
@@ -51,6 +52,10 @@ public class Client {
         Holder.toServerMessageMaps.put(userId, to);
     }
 
+    /**
+     * 链接服务器，初始化socket链接
+     * @return
+     */
     private boolean initSocket() {
         Socket socket = null;
         try {
